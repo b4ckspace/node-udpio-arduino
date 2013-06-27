@@ -1,0 +1,26 @@
+{
+    "name": "arduino-udpio",
+    "version": "0.1",
+    "author": "schinken <schinken@hackerspace-bamberg.de>",
+    "description": "sends udp broadcast on digital io change",
+    "contributors": [
+        {
+            "name": "schinken",
+            "email": "schinken@hackerspace-bamberg.de"
+        }
+    ],
+    "main": "firmata",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/schinken/arduino-udpio.git"
+    },
+    "keywords": [
+        "arduino", "udp", "network"
+    ],
+    "dependencies" : {
+        "firmata": "latest",
+    },
+    "engine": {
+        "node": ">=0.6.0"
+    }
+}

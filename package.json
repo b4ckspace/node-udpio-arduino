@@ -1,6 +1,6 @@
 {
     "name": "arduino-udpio",
-    "version": "0.1",
+    "version": "0.1.0",
     "author": "schinken <schinken@hackerspace-bamberg.de>",
     "description": "sends udp broadcast on digital io change",
     "contributors": [
@@ -18,7 +18,7 @@
         "arduino", "udp", "network"
     ],
     "dependencies" : {
-        "firmata": "latest",
+        "firmata": "latest"
     },
     "engine": {
         "node": ">=0.6.0"

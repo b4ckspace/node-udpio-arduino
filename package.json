@@ -1,5 +1,5 @@
 {
-    "name": "arduino-udpio",
+    "name": "node-udpio-arduino",
     "version": "0.1.0",
     "author": "schinken <schinken@hackerspace-bamberg.de>",
     "description": "sends udp broadcast on digital io change",
@@ -9,10 +9,9 @@
             "email": "schinken@hackerspace-bamberg.de"
         }
     ],
-    "main": "firmata",
     "repository": {
         "type": "git",
-        "url": "https://github.com/schinken/arduino-udpio.git"
+        "url": "https://github.com/schinken/node-udpio-arduino.git"
     },
     "keywords": [
         "arduino", "udp", "network"

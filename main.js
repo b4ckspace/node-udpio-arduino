@@ -5,7 +5,8 @@ var  settings = require('./settings.js')
 var udp_client = dgram.createSocket('udp4');
 
 function write_udp(pin, value) {
-    var msg = new Buffer('<'+settings.prefix+':'+pin.pin+':'+value+'>');
+    var key = pin.alias || pin.pin;
+    var msg = new Buffer('<'+settings.prefix+':'+key+':'+value+'>');
     udp_client.send(msg, 0, msg.length, settings.port, settings.ip);
 }
 

@@ -1,6 +1,6 @@
 var  settings = require('./settings.js')
     ,firmata = require('./firmata-utils')
-    ,dram = require('dgram');
+    ,dgram = require('dgram');
 
 var udp_client = dgram.createSocket('udp4');
 var changelog = {};

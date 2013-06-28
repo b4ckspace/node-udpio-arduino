@@ -14,20 +14,26 @@ function write_udp(key, value, ip) {
 var board = new firmata.Board(settings.serial, function() {
 
     settings.watch.forEach(function(watch) {
-        
-        board.pinMode(watch.pin, firmata.MODES.INPUT);
+ 
+        board.pinMode(watch.pin, board.MODES.INPUT);
 
         var key = watch.alias || watch.pin;
 
         if(watch.type == firmata.DIGITAL) {
-            var func = board.digitalDebounced;
+            var func = function(pin, cb) {
+                board.digitalDebounced(pin, cb);
+            };
         } else if(watch.type == firmata.ANALOG) {
-            var func = board.analogRead;
+            var func = function(pin, cb) {
+                board.analogRead(pin, cb);
+            };
         }
 
         func(watch.pin, function(value) {
+            if(!changelog[key] || changelog[key] != value) {
+                write_udp(key, value);
+            }
             changelog[key] = value;
-            write_udp(key, value);
         });
     });
 });

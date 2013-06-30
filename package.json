@@ -17,7 +17,8 @@
         "arduino", "udp", "network"
     ],
     "dependencies" : {
-        "firmata": "latest"
+        "firmata": "latest",
+        "winston": "latest"
     },
     "engine": {
         "node": ">=0.6.0"

@@ -33,6 +33,8 @@ function sendBroadcastMessage(id, key, value) {
 
 var board = new firmata.Board(settings.serial, function() {
 
+    logger.info('Connected to arduino on '+settings.serial);
+
     settings.watch.forEach(function(watch) {
  
         board.pinMode(watch.pin, board.MODES.INPUT);
@@ -43,10 +45,14 @@ var board = new firmata.Board(settings.serial, function() {
             var func = function(pin, cb) {
                 board.digitalDebounced(pin, cb);
             };
+
+            logger.info('Setting up watch on digital pin '+pin+' -> '+key);
         } else if(watch.type == firmata.ANALOG) {
             var func = function(pin, cb) {
                 board.analogRead(pin, cb);
             };
+
+            logger.info('Setting up watch on analog pin '+pin+' -> '+key);
         }
 
         func(watch.pin, function(value) {

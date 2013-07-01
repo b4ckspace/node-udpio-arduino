@@ -47,13 +47,13 @@ var board = new firmata.Board(settings.serial, function() {
                 board.digitalDebounced(pin, cb, sensivity);
             };
 
-            logger.info('Setting up watch on digital pin '+pin+' -> '+key);
+            logger.info('Setting up watch on digital pin '+watch.pin+' -> '+key);
         } else if(watch.type == firmata.ANALOG) {
             var func = function(pin, cb) {
                 board.analogRead(pin, cb);
             };
 
-            logger.info('Setting up watch on analog pin '+pin+' -> '+key);
+            logger.info('Setting up watch on analog pin '+watch.pin+' -> '+key);
         }
 
         func(watch.pin, function(value) {

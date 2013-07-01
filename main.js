@@ -43,7 +43,8 @@ var board = new firmata.Board(settings.serial, function() {
 
         if(watch.type == firmata.DIGITAL) {
             var func = function(pin, cb) {
-                board.digitalDebounced(pin, cb);
+                var sensivity = watch.sensivity || settings.sensivity;
+                board.digitalDebounced(pin, cb, sensivity);
             };
 
             logger.info('Setting up watch on digital pin '+pin+' -> '+key);

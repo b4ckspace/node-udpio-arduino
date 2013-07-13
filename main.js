@@ -16,8 +16,8 @@ var logger = new (winston.Logger)({
 
 var udp_client = dgram.createSocket('udp4');
 
-logger.info('Binding to 255.255.255.255:'+settings.port);
-udp_client.bind(settings.port, '255.255.255.255', function() {
+logger.info('Binding to '+settings.ip+':'+settings.port);
+udp_client.bind(settings.port, settings.ip, function() {
     logger.info('Port bound, setting broadcast mode');
     udp_client.setBroadcast(true);
 });
